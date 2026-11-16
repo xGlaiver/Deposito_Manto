@@ -1,3 +1,8 @@
+package model;
+
+import enums.Aggiunta;
+import enums.TipoCioccolato;
+
 public class CioccolatoCaldo extends BaseCioccolato {
 
     public static final int MIN_COST = 20;
@@ -8,7 +13,7 @@ public class CioccolatoCaldo extends BaseCioccolato {
     private double temperature;
     private int density;
 
-    public CioccolatoCaldo(String type, String additions, int cocoaPercentage, double temperature, int density) {
+    public CioccolatoCaldo(TipoCioccolato type, Aggiunta additions, int cocoaPercentage, double temperature, int density) {
         super(type, additions, cocoaPercentage);
         this.temperature = temperature;
         setDensity(density);

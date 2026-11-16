@@ -1,12 +1,17 @@
+package model;
+
+import enums.Aggiunta;
+import enums.TipoCioccolato;
+
 public abstract class BaseCioccolato {
 
     public static final int MAX_PRODUCTION = 100;
 
-    private String type;
-    private String additions;
+    private TipoCioccolato type;
+    private Aggiunta additions;
     private int cocoaPercentage;
 
-    public BaseCioccolato(String type, String additions, int cocoaPercentage) {
+    public BaseCioccolato(TipoCioccolato type, Aggiunta additions, int cocoaPercentage) {
         this.type = type;
         this.additions = additions;
         this.cocoaPercentage = cocoaPercentage;
@@ -18,19 +23,19 @@ public abstract class BaseCioccolato {
 
     public abstract int getCost();
 
-    public String getType() {
+    public TipoCioccolato getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TipoCioccolato type) {
         this.type = type;
     }
 
-    public String getAdditions() {
+    public Aggiunta getAdditions() {
         return additions;
     }
 
-    public void setAdditions(String additions) {
+    public void setAdditions(Aggiunta additions) {
         this.additions = additions;
     }
 

@@ -1,3 +1,8 @@
+package model;
+
+import enums.Aggiunta;
+import enums.TipoCioccolato;
+
 public class Cioccolatino extends BaseCioccolato {
 
     public static final int COST = 2;
@@ -5,7 +10,7 @@ public class Cioccolatino extends BaseCioccolato {
     private String shape;
     private String filling;
 
-    public Cioccolatino(String type, String additions, int cocoaPercentage, String shape, String filling) {
+    public Cioccolatino(TipoCioccolato type, Aggiunta additions, int cocoaPercentage, String shape, String filling) {
         super(type, additions, cocoaPercentage);
         this.shape = shape;
         this.filling = filling;

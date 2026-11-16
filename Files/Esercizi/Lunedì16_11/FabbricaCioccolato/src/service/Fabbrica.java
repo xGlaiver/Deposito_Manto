@@ -1,3 +1,7 @@
+package service;
+
+import model.BaseCioccolato;
+import model.Cioccolatino;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,7 +13,7 @@ import java.util.TreeMap;
 // Gestisce le giornate: limite di 100, produzione di oggi e storico dei giorni passati
 public class Fabbrica {
 
-    private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private LocalDate currentDate = LocalDate.now();
     private int usedToday = 0;

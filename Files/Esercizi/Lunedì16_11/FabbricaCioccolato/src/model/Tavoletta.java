@@ -1,19 +1,23 @@
+package model;
+
+import enums.Aggiunta;
+import enums.TipoCioccolato;
+
 public class Tavoletta extends BaseCioccolato {
 
-    // costo da 4 a 24 -> da 2 a 12 cioccolatini da 2
     public static final int MIN_CHOCOLATES = 2;
     public static final int MAX_CHOCOLATES = 12;
     public static final int GRAMS_PER_CHOCOLATE = 10;
 
     private int numberOfChocolates;
 
-    public Tavoletta(String type, String additions, int cocoaPercentage, int numberOfChocolates) {
+    public Tavoletta(TipoCioccolato type, Aggiunta additions, int cocoaPercentage, int numberOfChocolates) {
         super(type, additions, cocoaPercentage);
         setNumberOfChocolates(numberOfChocolates);
     }
 
     public boolean hasAdditions() {
-        return getAdditions() != null && !getAdditions().isEmpty() && !getAdditions().equals("nessuna");
+        return getAdditions() != Aggiunta.NESSUNA;
     }
 
     @Override
@@ -41,7 +45,6 @@ public class Tavoletta extends BaseCioccolato {
         return numberOfChocolates;
     }
 
-    // tiene il numero sempre tra 2 e 12
     public void setNumberOfChocolates(int numberOfChocolates) {
         if (numberOfChocolates < MIN_CHOCOLATES) {
             this.numberOfChocolates = MIN_CHOCOLATES;
