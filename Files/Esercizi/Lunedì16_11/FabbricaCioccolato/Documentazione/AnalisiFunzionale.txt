@@ -6,19 +6,34 @@ La fabbrica produce cioccolatini, tavolette e cioccolato caldo, fino a un massim
 di 100 unità di cioccolato al giorno. Raggiunto il limite la giornata si chiude,
 viene stampato un resoconto e viene chiesto se continuare.
 
+Struttura (src):
+- enums: TipoCioccolato (fondente, al latte, bianco), Aggiunta (nocciole, mandorle, biscotti, nessuna)
+- model: BaseCioccolato e i 3 prodotti
+- factory: CioccolatoFactory, crea i prodotti (design pattern Factory)
+- service: Fabbrica, gestisce le giornate
+- Main: menu in loop
+
 Classi:
-- Cioccolato (base): tipo (fondente, al latte, bianco), percentuale di cacao, limite 100/day, metodo produce()
+- BaseCioccolato (astratta): tipo, aggiunte, percentuale di cacao, limite 100/day, metodo produce() e getCost()
 - Cioccolatino: forma e ripieno, costo 2
-- Tavoletta: peso e aggiunte (nocciole, mandorle, biscotti), costo da 4 a 24 in base alla grandezza
-- CioccolatoCaldo: temperatura e densità, costo minimo 20
+- Tavoletta: formata da 2 a 12 cioccolatini, costo da 4 a 24
+- CioccolatoCaldo: temperatura e densità (1-5), costo da 20 a 40
 Ogni sottoclasse fa l'override di produce() mostrando quanto cioccolato ha usato.
+- Fabbrica: controlla il limite di 100, chiude la giornata con il resoconto
+  e salva lo storico per data (giorno, mese, anno)
+- Main: menu per produrre, chiudere la giornata e vedere lo storico.
+  Tipo e aggiunte vengono controllati con gli enum, se non validi si riprova
 
 Versionamento:
-Dividerò l'esercizio in 4 commit oltre questo:
+Il piano iniziale era di 4 commit, durante lo sviluppo li ho divisi meglio:
 
 - classe base Cioccolato
-- implementazione dei 3 tipi (Cioccolatino, Tavoletta, CioccolatoCaldo)
-- classe Fabbrica
-- classe Main
+- Cioccolatino (e rinomina in BaseCioccolato)
+- Tavoletta
+- CioccolatoCaldo
+- CioccolatoFactory
+- Fabbrica
+- refactor in cartelle e uso degli enum
+- Main
 
-Aggiornamento alle 12.24
+Aggiornamento alle 15:06
