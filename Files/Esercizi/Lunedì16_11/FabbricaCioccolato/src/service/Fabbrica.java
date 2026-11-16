@@ -13,6 +13,7 @@ import java.util.TreeMap;
 // Gestisce le giornate: limite di 100, produzione di oggi e storico dei giorni passati
 public class Fabbrica {
 
+    public static final int MAX_PRODUCTION = 100;
     public static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private LocalDate currentDate = LocalDate.now();
@@ -24,7 +25,7 @@ public class Fabbrica {
     public boolean produce(List<BaseCioccolato> products) {
         int cost = getTotalCost(products);
 
-        if (usedToday + cost > BaseCioccolato.MAX_PRODUCTION) {
+        if (usedToday + cost > MAX_PRODUCTION) {
             System.out.println("Richiesta rifiutata: servono " + cost + " di cioccolato, ne restano " + getRemaining());
             return false;
         }
@@ -76,7 +77,7 @@ public class Fabbrica {
         for (Map.Entry<String, Integer> entry : count.entrySet()) {
             report += entry.getKey() + ": " + entry.getValue() + "\n";
         }
-        report += "Cioccolato usato: " + getTotalCost(products) + "/" + BaseCioccolato.MAX_PRODUCTION;
+        report += "Cioccolato usato: " + getTotalCost(products) + "/" + MAX_PRODUCTION;
         return report;
     }
 
@@ -89,7 +90,7 @@ public class Fabbrica {
     }
 
     public int getRemaining() {
-        return BaseCioccolato.MAX_PRODUCTION - usedToday;
+        return MAX_PRODUCTION - usedToday;
     }
 
     public LocalDate getCurrentDate() {

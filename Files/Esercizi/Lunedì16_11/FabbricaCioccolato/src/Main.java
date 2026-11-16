@@ -55,7 +55,7 @@ public class Main {
     private static void printMenu() {
         System.out.println();
         System.out.println("===== FABBRICA DI CIOCCOLATO - " + fabbrica.getCurrentDate().format(Fabbrica.FORMAT) + " =====");
-        System.out.println("Cioccolato rimasto oggi: " + fabbrica.getRemaining() + "/" + BaseCioccolato.MAX_PRODUCTION);
+        System.out.println("Cioccolato rimasto oggi: " + fabbrica.getRemaining() + "/" + Fabbrica.MAX_PRODUCTION);
         System.out.println("1. Produci cioccolatini (costo " + Cioccolatino.COST + " l'uno)");
         System.out.println("2. Produci tavolette (costo da 4 a 24)");
         System.out.println("3. Produci cioccolato caldo (costo da 20 a 40)");
@@ -70,7 +70,7 @@ public class Main {
         int cocoa = readInt("Percentuale di cacao: ", 0, 100);
         String shape = readString("Forma: ");
         String filling = readString("Ripieno: ");
-        int quantity = readInt("Quanti cioccolatini? ", 1, BaseCioccolato.MAX_PRODUCTION);
+        int quantity = readInt("Quanti cioccolatini? ", 1, Fabbrica.MAX_PRODUCTION);
 
         List<BaseCioccolato> products = CioccolatoFactory.createCioccolatini(type, additions, cocoa, quantity, shape, filling);
         fabbrica.produce(products);
@@ -82,7 +82,7 @@ public class Main {
         int cocoa = readInt("Percentuale di cacao: ", 0, 100);
         int size = readInt("Da quanti cioccolatini è fatta ogni tavoletta (2-12)? ",
                 Tavoletta.MIN_CHOCOLATES, Tavoletta.MAX_CHOCOLATES);
-        int quantity = readInt("Quante tavolette? ", 1, BaseCioccolato.MAX_PRODUCTION);
+        int quantity = readInt("Quante tavolette? ", 1, Fabbrica.MAX_PRODUCTION);
 
         List<BaseCioccolato> products = CioccolatoFactory.createTavolette(type, additions, cocoa, quantity, size);
         fabbrica.produce(products);
@@ -95,7 +95,7 @@ public class Main {
         double temperature = readInt("Temperatura in °C: ", 0, 100);
         int density = readInt("Densità (1 liquida - 5 molto densa): ",
                 CioccolatoCaldo.MIN_DENSITY, CioccolatoCaldo.MAX_DENSITY);
-        int quantity = readInt("Quante cioccolate calde? ", 1, BaseCioccolato.MAX_PRODUCTION);
+        int quantity = readInt("Quante cioccolate calde? ", 1, Fabbrica.MAX_PRODUCTION);
 
         List<BaseCioccolato> products = CioccolatoFactory.createCioccolatoCaldo(type, additions, cocoa, quantity, temperature, density);
         fabbrica.produce(products);

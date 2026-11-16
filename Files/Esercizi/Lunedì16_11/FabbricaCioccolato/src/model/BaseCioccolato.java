@@ -5,8 +5,6 @@ import enums.TipoCioccolato;
 
 public abstract class BaseCioccolato {
 
-    public static final int MAX_PRODUCTION = 100;
-
     private TipoCioccolato type;
     private Aggiunta additions;
     private int cocoaPercentage;

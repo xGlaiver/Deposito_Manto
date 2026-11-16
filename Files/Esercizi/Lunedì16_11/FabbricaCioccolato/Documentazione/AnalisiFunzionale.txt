@@ -14,12 +14,12 @@ Struttura (src):
 - Main: menu in loop
 
 Classi:
-- BaseCioccolato (astratta): tipo, aggiunte, percentuale di cacao, limite 100/day, metodo produce() e getCost()
+- BaseCioccolato (astratta): tipo, aggiunte, percentuale di cacao, metodo produce() e getCost()
 - Cioccolatino: forma e ripieno, costo 2
 - Tavoletta: formata da 2 a 12 cioccolatini, costo da 4 a 24
 - CioccolatoCaldo: temperatura e densità (1-5), costo da 20 a 40
 Ogni sottoclasse fa l'override di produce() mostrando quanto cioccolato ha usato.
-- Fabbrica: controlla il limite di 100, chiude la giornata con il resoconto
+- Fabbrica: limite di 100 al giorno (MAX_PRODUCTION), chiude la giornata con il resoconto
   e salva lo storico per data (giorno, mese, anno)
 - Main: menu per produrre, chiudere la giornata e vedere lo storico.
   Tipo e aggiunte vengono controllati con gli enum, se non validi si riprova
