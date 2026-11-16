@@ -2,7 +2,6 @@ import enums.Aggiunta;
 import enums.TipoCioccolato;
 import factory.CioccolatoFactory;
 import model.BaseCioccolato;
-import model.Cioccolatino;
 import model.CioccolatoCaldo;
 import model.Tavoletta;
 import service.Fabbrica;
@@ -56,7 +55,7 @@ public class Main {
         System.out.println();
         System.out.println("===== FABBRICA DI CIOCCOLATO - " + fabbrica.getCurrentDate().format(Fabbrica.FORMAT) + " =====");
         System.out.println("Cioccolato rimasto oggi: " + fabbrica.getRemaining() + "/" + Fabbrica.MAX_PRODUCTION);
-        System.out.println("1. Produci cioccolatini (costo " + Cioccolatino.COST + " l'uno)");
+        System.out.println("1. Produci cioccolatini (costo " + BaseCioccolato.UNIT_COST + " l'uno)");
         System.out.println("2. Produci tavolette (costo da 4 a 24)");
         System.out.println("3. Produci cioccolato caldo (costo da 20 a 40)");
         System.out.println("4. Chiudi la giornata");
@@ -101,14 +100,12 @@ public class Main {
         fabbrica.produce(products);
     }
 
-    // chiude la giornata, stampa il resoconto e chiede se continuare
     private static boolean endDay() {
         fabbrica.closeDay();
         String answer = readString("Vuoi continuare con il giorno successivo? (s/n): ");
         return answer.equalsIgnoreCase("s");
     }
 
-    // continua a chiedere finché il tipo non corrisponde all'enum
     private static TipoCioccolato readType() {
         while (true) {
             String input = readString("Tipo di cioccolato (fondente, latte, bianco): ");
@@ -120,7 +117,6 @@ public class Main {
         }
     }
 
-    // continua a chiedere finché l'aggiunta non corrisponde all'enum
     private static Aggiunta readAddition() {
         while (true) {
             String input = readString("Aggiunte (nocciole, mandorle, biscotti, nessuna): ");
@@ -137,7 +133,6 @@ public class Main {
         return scanner.nextLine().trim();
     }
 
-    // continua a chiedere finché non viene inserito un numero valido
     private static int readInt(String message, int min, int max) {
         while (true) {
             System.out.print(message);

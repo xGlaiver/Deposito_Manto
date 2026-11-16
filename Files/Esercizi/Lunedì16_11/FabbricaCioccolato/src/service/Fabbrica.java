@@ -1,7 +1,6 @@
 package service;
 
 import model.BaseCioccolato;
-import model.Cioccolatino;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-// Gestisce le giornate: limite di 100, produzione di oggi e storico dei giorni passati
 public class Fabbrica {
 
     public static final int MAX_PRODUCTION = 100;
@@ -21,7 +19,6 @@ public class Fabbrica {
     private List<BaseCioccolato> todayProduction = new ArrayList<>();
     private Map<LocalDate, List<BaseCioccolato>> history = new TreeMap<>();
 
-    // produce tutta la richiesta solo se c'è abbastanza cioccolato, altrimenti la rifiuta
     public boolean produce(List<BaseCioccolato> products) {
         int cost = getTotalCost(products);
 
@@ -39,12 +36,10 @@ public class Fabbrica {
         return true;
     }
 
-    // la giornata è finita quando non si può più fare neanche un cioccolatino
     public boolean isDayFinished() {
-        return getRemaining() < Cioccolatino.COST;
+        return getRemaining() < BaseCioccolato.UNIT_COST;
     }
 
-    // stampa il resoconto, lo salva nello storico e passa al giorno dopo
     public void closeDay() {
         System.out.println(createReport(currentDate, todayProduction));
         history.put(currentDate, new ArrayList<>(todayProduction));
@@ -61,7 +56,6 @@ public class Fabbrica {
         }
     }
 
-    // prodotti di un giorno, lista vuota se quel giorno non c'è
     public List<BaseCioccolato> getProduction(LocalDate date) {
         return history.getOrDefault(date, new ArrayList<>());
     }

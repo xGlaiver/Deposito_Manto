@@ -34,7 +34,7 @@ public class Tavoletta extends BaseCioccolato {
 
     @Override
     public int getCost() {
-        return numberOfChocolates * Cioccolatino.COST;
+        return numberOfChocolates * UNIT_COST;
     }
 
     public int getWeight() {

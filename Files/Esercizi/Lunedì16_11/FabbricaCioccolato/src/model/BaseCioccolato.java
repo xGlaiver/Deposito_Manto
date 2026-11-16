@@ -5,6 +5,8 @@ import enums.TipoCioccolato;
 
 public abstract class BaseCioccolato {
 
+    public static final int UNIT_COST = 2;
+
     private TipoCioccolato type;
     private Aggiunta additions;
     private int cocoaPercentage;

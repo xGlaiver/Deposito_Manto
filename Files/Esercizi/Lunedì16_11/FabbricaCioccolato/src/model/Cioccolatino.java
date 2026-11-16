@@ -5,8 +5,6 @@ import enums.TipoCioccolato;
 
 public class Cioccolatino extends BaseCioccolato {
 
-    public static final int COST = 2;
-
     private String shape;
     private String filling;
 
@@ -25,7 +23,7 @@ public class Cioccolatino extends BaseCioccolato {
 
     @Override
     public int getCost() {
-        return COST;
+        return UNIT_COST;
     }
 
     public String getShape() {

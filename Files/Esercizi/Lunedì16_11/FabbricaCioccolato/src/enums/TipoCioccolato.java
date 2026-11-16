@@ -15,7 +15,6 @@ public enum TipoCioccolato {
         return label;
     }
 
-    // cerca il tipo dal testo scritto, accetta sia "latte" che "al latte"; null se non esiste
     public static TipoCioccolato fromString(String text) {
         for (TipoCioccolato tipo : values()) {
             if (tipo.name().equalsIgnoreCase(text) || tipo.label.equalsIgnoreCase(text)) {
