@@ -1,0 +1,24 @@
+ANALISI FUNZIONALE - Fabbrica di Cioccolato
+
+Obiettivo:
+Applicazione Java che simula la produzione giornaliera di una fabbrica di cioccolato.
+La fabbrica produce cioccolatini, tavolette e cioccolato caldo, fino a un massimo
+di 100 unità di cioccolato al giorno. Raggiunto il limite la giornata si chiude,
+viene stampato un resoconto e viene chiesto se continuare.
+
+Classi:
+- Cioccolato (base): tipo (fondente, al latte, bianco), percentuale di cacao, limite 100/day, metodo produce()
+- Cioccolatino: forma e ripieno, costo 2
+- Tavoletta: peso e aggiunte (nocciole, mandorle, biscotti), costo da 4 a 24 in base alla grandezza
+- CioccolatoCaldo: temperatura e densità, costo minimo 20
+Ogni sottoclasse fa l'override di produce() mostrando quanto cioccolato ha usato.
+
+Versionamento:
+Dividerò l'esercizio in 4 commit oltre questo:
+
+- classe base Cioccolato
+- implementazione dei 3 tipi (Cioccolatino, Tavoletta, CioccolatoCaldo)
+- classe Fabbrica
+- classe Main
+
+Aggiornamento alle 12.24
