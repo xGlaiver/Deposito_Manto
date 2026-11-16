@@ -1,4 +1,4 @@
-public abstract class Cioccolato {
+public abstract class BaseCioccolato {
 
     public static final int MAX_PRODUCTION = 100;
 
@@ -6,7 +6,7 @@ public abstract class Cioccolato {
     private String additions;
     private int cocoaPercentage;
 
-    public Cioccolato(String type, String additions, int cocoaPercentage) {
+    public BaseCioccolato(String type, String additions, int cocoaPercentage) {
         this.type = type;
         this.additions = additions;
         this.cocoaPercentage = cocoaPercentage;
